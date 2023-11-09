@@ -7,22 +7,24 @@ public class View {
    
         
 
-    public void runMenu(String menu)throws Exception{
+    public void runMenu()throws Exception{
         boolean salir = false;
             do {
             mostrarMenu();
             int opcion;
             opcion = this.leerInt();
             switch (opcion) {
-                //case "1" ->
+                case 1 ->
+                    System.out.printf("funciona");
                   
                 
-                //case "2" ->
+                case 2 ->
+                    System.out.printf("funciona bien");
                    
-                //case "3" ->
-                   
-
-                case 5 ->
+                case 3 ->
+                    System.out.printf("funciona genial");
+                
+               case 5 ->
                     salir = siOno();
 
                 default ->
@@ -35,8 +37,9 @@ public class View {
    
     public static void mostrarMenu() {
         System.out.println("Menú:");
-        System.out.println("1. a realizar");
-        System.out.println("2. ya se hará");
+        System.out.println("1. continuar partida");
+        System.out.println("2. nueva partida");
+        System.out.println("3. información");
         System.out.println("5. Salir del programa");
       
     }         
