@@ -24,9 +24,9 @@ public class Model {
     public float leerFloat(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Introduce un numero: ");
-        int numero = scan.nextInt();
-        System.out.println("Has introducido: " + numero);
-        return numero;
+        float numerof = scan.nextFloat();
+        System.out.println("Has introducido: " + numerof);
+        return numerof;
     }
     
 public boolean siOno(){
@@ -47,4 +47,4 @@ public boolean siOno(){
        
 }
 
-}
+}//llave final
