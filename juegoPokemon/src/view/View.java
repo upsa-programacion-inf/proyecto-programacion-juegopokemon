@@ -164,3 +164,10 @@ public class View {
         }
 
 }//llave final
+
+/*     do{ 
+            System.out.println("introduce el nombre para comprobar que no existe ya");
+            nombre = leerCadena();
+            
+        }while(c.estaSiONo(nombre));
+*/
