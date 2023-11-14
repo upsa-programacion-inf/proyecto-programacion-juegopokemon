@@ -1,5 +1,10 @@
 
 package model;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -77,4 +82,37 @@ public boolean añadirPokemon(String nombre, int ps, String movimientos, float p
         }
         return tab_poke;
     }
+    
+public void importarDesdeTxt(String nombreArchivo) {
+        if (pokedex == null) {
+            pokedex = new ArrayList<>();
+        }
+
+try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop",nombreArchivo);
+
+        Scanner scan = new Scanner(rutaCompleta.toFile());
+
+            while (scan.hasNextLine()) {
+                String poke = scan.nextLine();
+                String[] datos = poke.split("\t");
+                String nombre = datos[0];
+                int ps = Integer.parseInt(datos[1]);
+                String movimientos = datos[2];
+                float peso = Float.parseFloat(datos[3]);
+                float altura = Float.parseFloat(datos[4]);
+                int num_pokedex = Integer.parseInt(datos[5]);
+                int nivel = Integer.parseInt(datos[6]);
+
+                Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+                pokedex.add(nuevoPokemon);
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Archivo no encontrado: " + nombreArchivo);
+        }
+    }
+
+   
 }//llave final

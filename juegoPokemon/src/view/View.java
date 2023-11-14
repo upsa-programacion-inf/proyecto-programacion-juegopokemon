@@ -162,7 +162,9 @@ public class View {
         }
        
         }
-
+ public void importarDesdeTxt(String ruta) {
+        c.importarDesdeTxt(ruta);
+    }
 }//llave final
 
 /*     do{ 

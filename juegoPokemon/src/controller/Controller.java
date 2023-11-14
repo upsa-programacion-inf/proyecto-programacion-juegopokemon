@@ -26,4 +26,8 @@ public class Controller {
     public String[][] tablaFigura() {
         return m.tablaFigura();
     }
+    public void importarDesdeTxt(String ruta) {
+        m.importarDesdeTxt(ruta);
+    }
+    
 }
