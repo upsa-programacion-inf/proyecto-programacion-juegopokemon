@@ -119,5 +119,15 @@ public class Pokemon {
         this.Pokemon = Pokemon;
     }
     
-    
+       String[] comoFila() {
+        String[] fila = {this.nombre,
+            this.ps+"",
+            this.movimientos+
+            this.peso+"",
+            this.altura+"",
+            this.num_pokedex+"",
+            this.nivel+""};
+        return fila;
+    }
+
 }

@@ -4,6 +4,7 @@ import controller.Controller;
 
 public class View {
     Controller c = new Controller();
+
    
         
 
@@ -17,9 +18,8 @@ public class View {
                 case 1 ->
                     this.nuevaPartida();
                   
-                
                 case 2 ->
-                    System.out.printf("funciona bien");
+                    this.continuarPartida();
                    
                 case 3 ->
                     System.out.printf("funciona genial");
@@ -43,7 +43,7 @@ public class View {
         System.out.println("4. Salir del programa");
       
     }         
-   private String leerCadena(String menu){
+   private String leerCadena(){
         return c.leerCadena();
     }
    private int leerInt(){
@@ -52,11 +52,11 @@ public class View {
    private float leerFloat(){
         return c.leerFloat();
     }
-   public boolean siOno(){
+   private boolean siOno(){
         return c.siOno();
     }
    
-   public void nuevaPartida(){
+   private void nuevaPartida(){
        System.out.println("Bienvenido al Mundo Pókemon");
        System.out.println("Acabas de comenzar tu aventura en esta nueva y extraña región");
        System.out.println("Pero no puedes hacerlo solo, NECESITARÁS UN POKEMON QUE TE ACOMPAÑE!!!");
@@ -65,7 +65,7 @@ public class View {
        System.out.println("Dicho esto que comienze la aventura");
        this.continuarPartida();
 }
-    public void continuarPartida(){
+    private void continuarPartida(){
         System.out.println("Que quieres hacer?");
         boolean salir = false;
             do {
@@ -97,7 +97,7 @@ public class View {
     
     }    
 
-   public static void muestraMenu() {
+   private static void muestraMenu() {
         System.out.println("Menú:");
         System.out.println("1. combate");
         System.out.println("2. captura");
@@ -107,5 +107,64 @@ public class View {
       
     }         
         
-   
+      private void añadirPokemon(){
+        System.out.printf("%nVamos a añadir un pokemon, por favor, conteste a lo sigiente:");
+        String nombre="";
+        do{ 
+            System.out.println("introduce el nombre para comprobar que no existe ya");
+            nombre = leerCadena();
+            
+        }while(c.estaSiONo(nombre));
+         System.out.println("dime los ps del pokemon, si está sano 200");
+         int ps=this.leerInt();
+          System.out.println("dime algun movimiento que tenga el pokemon");
+         String movimientos = this.leerCadena();
+          System.out.println("diga el peso del pokemon");
+         float peso = this.leerFloat();
+          System.out.println("diga la altura del pokemon");
+         float altura = this.leerFloat();
+          System.out.println("diga el numero de pokedex del pokemon");
+         int num_pokedex = this.leerInt();
+          System.out.println("diga el nivel del pokemon");
+         int nivel = this.leerInt();
+ 
+      c.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+      this.tablaFiguras();
+      
+        }
+    
+  public void eresAdmin()throws Exception{
+        boolean salir = false;
+        
+            do {
+                System.out.println("1.eres admin");
+                System.out.println("2.eres jugador");
+                System.out.println("3.salir");
+            int opcion;
+            opcion = this.leerInt();
+            switch (opcion) {
+                case 1 ->
+                    this.añadirPokemon();
+                  
+                case 2 ->
+                    this.runMenu();
+                    
+                case 3 ->
+                    salir = siOno();
+
+
+            }
+        } while (!salir);
+    
+    }
+    private void tablaFiguras(){
+        var ldt = c.tablaFigura();
+        try {
+            System.out.println(ldt);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+       
+        }
+
 }//llave final
