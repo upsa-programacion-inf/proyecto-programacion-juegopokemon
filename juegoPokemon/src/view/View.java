@@ -109,7 +109,12 @@ public class View {
         
       private void añadirPokemon(){
         System.out.printf("%nVamos a añadir un pokemon, por favor, conteste a lo sigiente:");
-        String nombre=leerCadena();
+        String nombre="";
+        do{ 
+            System.out.println("introduce el nombre para comprobar que no existe ya");
+            nombre = leerCadena();
+            
+        }while(c.estaSiONo(nombre));
   
          System.out.println("dime los ps del pokemon, si está sano 200");
          int ps=this.leerInt();
@@ -167,9 +172,4 @@ public class View {
     }
 }//llave final
 
-/*     do{ 
-            System.out.println("introduce el nombre para comprobar que no existe ya");
-            nombre = leerCadena();
-            
-        }while(c.estaSiONo(nombre));
-*/
+ 

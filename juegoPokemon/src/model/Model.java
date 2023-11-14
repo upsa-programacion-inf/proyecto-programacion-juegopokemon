@@ -95,7 +95,7 @@ try {
 
             while (scan.hasNextLine()) {
                 String poke = scan.nextLine();
-                String[] datos = poke.split("\t");
+                String[] datos = poke.split(",");
                 String nombre = datos[0];
                 int ps = Integer.parseInt(datos[1]);
                 String movimientos = datos[2];
