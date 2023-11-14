@@ -5,14 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Model {
-    public List <Pokemon> pokedex;
+    public List <Pokemon> pokedex = null;
         
     public String leerCadena(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Introduce una cadena: ");
         String cadena = scan.nextLine();
-        System.out.println("Has introducido: " + cadena);
-        scan.close(); 
+        System.out.println("Has introducido: " + cadena); 
         return cadena;
     }
     

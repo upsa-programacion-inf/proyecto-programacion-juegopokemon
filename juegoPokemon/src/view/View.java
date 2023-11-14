@@ -109,27 +109,23 @@ public class View {
         
       private void añadirPokemon(){
         System.out.printf("%nVamos a añadir un pokemon, por favor, conteste a lo sigiente:");
-        String nombre="";
-        do{ 
-            System.out.println("introduce el nombre para comprobar que no existe ya");
-            nombre = leerCadena();
-            
-        }while(c.estaSiONo(nombre));
+        String nombre=leerCadena();
+  
          System.out.println("dime los ps del pokemon, si está sano 200");
          int ps=this.leerInt();
           System.out.println("dime algun movimiento que tenga el pokemon");
-         String movimientos = this.leerCadena();
+         String movimientos = leerCadena();
           System.out.println("diga el peso del pokemon");
-         float peso = this.leerFloat();
+         float peso = leerFloat();
           System.out.println("diga la altura del pokemon");
-         float altura = this.leerFloat();
+         float altura = leerFloat();
           System.out.println("diga el numero de pokedex del pokemon");
-         int num_pokedex = this.leerInt();
+         int num_pokedex = leerInt();
           System.out.println("diga el nivel del pokemon");
-         int nivel = this.leerInt();
+         int nivel = leerInt();
  
       c.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
-      this.tablaFiguras();
+
       
         }
     
