@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -139,7 +141,17 @@ public String[][] tablaPokemon() {
         }
     }
 
-
-
+public void ordenarPokemonsPorNumeroDePokedex() {
+        Collections.sort(pokedex, Comparator.comparing(Pokemon::getNum_pokedex));
+               
+    }
+public void ordenarPokemonsPorNombre() {
+        Collections.sort(pokedex, Comparator.comparing(Pokemon::getNombre));
+               
+    }
+public void ordenarPokemonsPorNivelYAlfabetico() {
+        Collections.sort(pokedex, Comparator.comparing(Pokemon::getNivel).thenComparing(Pokemon::getNombre));
+               
+    }
    
 }//llave final

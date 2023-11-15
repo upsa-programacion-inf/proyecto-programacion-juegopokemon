@@ -224,6 +224,43 @@ private void tablaPokemon() {
         c.datosPokemon(nombre);
        
     }
+  public void menuPokedex(){
+      boolean salir = false;
+     
+        
+            do {
+                System.out.println("1.Ver los Pokemons de la pokedex");
+                System.out.println("2.ver datos de un  Pokemon");
+                System.out.println("3.Ordenar la pokedex por Numero de la Pokedex");
+                System.out.println("4.Ordenar la pokedex en orden alfábetico");
+                System.out.println("5.Ordenar la pokedex por orden nivel en el que ese pokemon empieza a aparecer y Alfabeticamente");
+                System.out.println("6.salir");
+            int opcion;
+            opcion = this.leerInt();
+            switch (opcion) {
+                case 1 ->
+                    this.tablaPokemon();
+                  
+                case 2 ->
+                    this.datosPokemon();
+                    
+                case 3 ->
+                    c.ordenarPokemonsPorNumeroDePokedex();
+                
+                case 4 ->
+                    System.out.println("por hacer");
+                  
+                case 5 ->
+                    salir = siOno();
+                    
+                default ->
+                    System.out.printf("%n Opcion Incorrecta %n");
+
+            }
+        } while (!salir);
+    
+      
+  }
  
 }//llave final
 
