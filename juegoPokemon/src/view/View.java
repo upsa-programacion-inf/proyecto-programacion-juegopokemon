@@ -84,7 +84,7 @@ public class View {
                     System.out.printf("pokemon");
                     
                 case 4 ->
-                    System.out.printf("pokedex");
+                    this.menuPokedex();
                 
                case 5 ->
                     salir = siOno();
@@ -245,13 +245,14 @@ private void tablaPokemon() {
                     this.datosPokemon();
                     
                 case 3 ->
-                    c.ordenarPokemonsPorNumeroDePokedex();
+                    this.ordenarPokemonsPorNumeroDePokedex();
+                 
                 
                 case 4 ->
-                    c.ordenarPokemonsPorNombre();
+                    this.ordenarPokemonsPorNombre();
                  
                 case 5 ->
-                    c.ordenarPokemonsPorNivelYAlfabetico();
+                    this.ordenarPokemonsPorNivelYAlfabetico();
                  
                   
                 case 6 ->
@@ -265,6 +266,22 @@ private void tablaPokemon() {
     
       
   }
+   public void ordenarPokemonsPorNumeroDePokedex() {
+        c.ordenarPokemonsPorNumeroDePokedex();
+        this.tablaPokemon();
+               
+    }
+    
+    public void ordenarPokemonsPorNombre() {
+        c.ordenarPokemonsPorNombre();
+        this.tablaPokemon();
+               
+    }
+    public void ordenarPokemonsPorNivelYAlfabetico() {
+       c.ordenarPokemonsPorNivelYAlfabetico();
+       this.tablaPokemon();
+               
+    }
  
 }//llave final
 

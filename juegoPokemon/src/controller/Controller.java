@@ -42,7 +42,7 @@ public class Controller {
         m.ordenarPokemonsPorNombre();
                
     }
-public void ordenarPokemonsPorNivelYAlfabetico() {
+    public void ordenarPokemonsPorNivelYAlfabetico() {
        m.ordenarPokemonsPorNivelYAlfabetico();
                
     }
