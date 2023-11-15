@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Model {
     public List <Pokemon> pokedex = null;
+    private List<Entrenador> entrenadores;
         
     public String leerCadena(){
         Scanner scan = new Scanner(System.in);
@@ -137,6 +138,8 @@ public String[][] tablaPokemon() {
             return null;
         }
     }
+
+
 
    
 }//llave final
