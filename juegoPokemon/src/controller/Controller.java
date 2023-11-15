@@ -24,10 +24,12 @@ public class Controller {
     }
     
     public String[][] tablaFigura() {
-        return m.tablaFigura();
+        return m.tablaPoke();
     }
     public void importarDesdeTxt(String ruta) {
         m.importarDesdeTxt(ruta);
     }
-    
+    public void datosPokemon(String nombre){
+        m.datosPokemon(nombre);
+    }
 }

@@ -73,7 +73,7 @@ public boolean añadirPokemon(String nombre, int ps, String movimientos, float p
          }
          return false;
      }
-    public String[][] tablaFigura(){
+    public String[][] tablaPoke(){
          
         int numpoke=this.pokedex.size();
         String[][] tab_poke=new String[numpoke][];
@@ -113,6 +113,18 @@ try {
             System.out.println("Archivo no encontrado: " + nombreArchivo);
         }
     }
-
+public void datosPokemon(String nombre){
+        for(Pokemon poke: pokedex){
+            if(poke.getNombre().equalsIgnoreCase(nombre)){
+                System.out.println("nombre");System.out.println(poke.getNombre());
+                System.out.println("ps");System.out.println(poke.getPs());
+                System.out.println("movimientosl");System.out.println(poke.getMovimientos());
+                System.out.println("peso");System.out.println(poke.getPeso());
+                System.out.println("altura");System.out.println(poke.getAltura());
+                System.out.println("num_pokedex");System.out.println(poke.getNum_pokedex());
+                System.out.println("nivel");System.out.println(poke.getNivel());
+            }
+        }
+    }
    
 }//llave final

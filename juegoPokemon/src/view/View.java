@@ -145,7 +145,7 @@ public class View {
             opcion = this.leerInt();
             switch (opcion) {
                 case 1 ->
-                    this.añadirPokemon();
+                    this.cambiosPokemon();
                   
                 case 2 ->
                     this.runMenu();
@@ -170,6 +170,50 @@ public class View {
  public void importarDesdeTxt(String ruta) {
         c.importarDesdeTxt(ruta);
     }
+ 
+ public void cambiosPokemon(){
+     boolean salir = false;
+     
+        
+            do {
+                System.out.println("1.añadir dastos de un Pokemon");
+                System.out.println("2.ver datos de un  Pokemon");
+                System.out.println("3.ver Pokedex");
+                System.out.println("4.eliminar datos de un pokemon");
+                System.out.println("5.salir");
+            int opcion;
+            opcion = this.leerInt();
+            switch (opcion) {
+                case 1 ->
+                    this.añadirPokemon();
+                  
+                case 2 ->
+                    this.datosPokemon();
+                    
+                case 3 ->
+                    System.out.println("por hacer");
+                
+                case 4 ->
+                    System.out.println("por hacer");
+                  
+                case 5 ->
+                    salir = siOno();
+
+            }
+        } while (!salir);
+    
+     
+ }
+  private void datosPokemon(){
+        String nombre;
+        do{ 
+           nombre = leerCadena();
+            
+        }while(!c.estaSiONo(nombre));
+        c.datosPokemon(nombre);
+       
+    }
+ 
 }//llave final
 
  
