@@ -152,14 +152,16 @@ public class View {
                     
                 case 3 ->
                     salir = siOno();
+                default ->
+                    System.out.printf("%n Opcion Incorrecta %n");
 
 
             }
         } while (!salir);
     
     }
-    private void tablaFiguras(){
-        var ldt = c.tablaFigura();
+    private void tablaPokemon(){
+        var ldt = c.tablaPokemon();
         try {
             System.out.println(ldt);
         } catch (Exception ex) {
@@ -198,6 +200,9 @@ public class View {
                   
                 case 5 ->
                     salir = siOno();
+                    
+                default ->
+                    System.out.printf("%n Opcion Incorrecta %n");
 
             }
         } while (!salir);

@@ -23,7 +23,7 @@ public class Controller {
         return m.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
     }
     
-    public String[][] tablaFigura() {
+    public String[][] tablaPokemon() {
         return m.tablaPoke();
     }
     public void importarDesdeTxt(String ruta) {
