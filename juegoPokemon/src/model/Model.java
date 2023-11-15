@@ -73,15 +73,7 @@ public boolean añadirPokemon(String nombre, int ps, String movimientos, float p
          }
          return false;
      }
-    public String[][] tablaPoke(){
-         
-        int numpoke=this.pokedex.size();
-        String[][] tab_poke=new String[numpoke][];
-        for(int n=0;n<numpoke;n++) {
-            tab_poke[n]=pokedex.get(n).comoFila();
-        }
-        return tab_poke;
-    }
+
     
 public void importarDesdeTxt(String nombreArchivo) {
         if (pokedex == null) {
@@ -126,5 +118,25 @@ public void datosPokemon(String nombre){
             }
         }
     }
+public String[][] tablaPokemon() {
+        try {
+            if (pokedex != null && !pokedex.isEmpty()) {
+                String[][] tabla = new String[pokedex.size()][];
+                int i = 0;
+                for (Pokemon pokemon : pokedex) {
+                    tabla[i] = pokemon.comoFila();
+                    i++;
+                }
+                return tabla;
+            } else {
+                System.out.println("La Pokedex está vacía o es nula.");
+                return null;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
+
    
 }//llave final

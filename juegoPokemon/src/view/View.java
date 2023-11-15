@@ -160,15 +160,21 @@ public class View {
         } while (!salir);
     
     }
-    private void tablaPokemon(){
-        var ldt = c.tablaPokemon();
-        try {
-            System.out.println(ldt);
-        } catch (Exception ex) {
-            System.out.println(ex);
+private void tablaPokemon() {
+    try {
+        String[][] tabla = c.tablaPokemon();
+        if (tabla != null && tabla.length > 0 && tabla[0].length == 7) {
+            for (String[] fila : tabla) {
+                System.out.printf("%nNombre: %s, PS: %s, Movimientos: %s, Peso: %s, Altura: %s, Num Pokedex: %s, Nivel: %s%n",
+                        fila[0], fila[1], fila[2], fila[3], fila[4], fila[5], fila[6]);
+            }
+        } else {
+            System.out.println("La Pokedex está vacía o es nula.");
         }
-       
-        }
+    } catch (Exception ex) {
+        System.out.println(ex);
+    }
+}
  public void importarDesdeTxt(String ruta) {
         c.importarDesdeTxt(ruta);
     }
@@ -193,7 +199,7 @@ public class View {
                     this.datosPokemon();
                     
                 case 3 ->
-                    System.out.println("por hacer");
+                    this.tablaPokemon();
                 
                 case 4 ->
                     System.out.println("por hacer");

@@ -119,15 +119,17 @@ public class Pokemon {
         this.Pokemon = Pokemon;
     }
     
-       String[] comoFila() {
-        String[] fila = {this.nombre,
-            this.ps+"",
-            this.movimientos+
-            this.peso+"",
-            this.altura+"",
-            this.num_pokedex+"",
-            this.nivel+""};
-        return fila;
-    }
+   public String[] comoFila() {
+    String[] fila = {
+            this.nombre,
+            String.valueOf(this.ps),
+            this.movimientos,
+            String.valueOf(this.peso),
+            String.valueOf(this.altura),
+            String.valueOf(this.num_pokedex),
+            String.valueOf(this.nivel)
+    };
+    return fila;
+}
 
 }
