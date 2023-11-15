@@ -248,9 +248,13 @@ private void tablaPokemon() {
                     c.ordenarPokemonsPorNumeroDePokedex();
                 
                 case 4 ->
-                    System.out.println("por hacer");
-                  
+                    c.ordenarPokemonsPorNombre();
+                 
                 case 5 ->
+                    c.ordenarPokemonsPorNivelYAlfabetico();
+                 
+                  
+                case 6 ->
                     salir = siOno();
                     
                 default ->

@@ -33,4 +33,17 @@ public class Controller {
     public void datosPokemon(String nombre){
         m.datosPokemon(nombre);
     }
+    public void ordenarPokemonsPorNumeroDePokedex() {
+        m.ordenarPokemonsPorNumeroDePokedex();
+               
+    }
+    
+    public void ordenarPokemonsPorNombre() {
+        m.ordenarPokemonsPorNombre();
+               
+    }
+public void ordenarPokemonsPorNivelYAlfabetico() {
+       m.ordenarPokemonsPorNivelYAlfabetico();
+               
+    }
 }
