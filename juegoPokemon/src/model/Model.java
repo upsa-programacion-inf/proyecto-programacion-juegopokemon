@@ -153,5 +153,47 @@ public void ordenarPokemonsPorNivelYAlfabetico() {
         Collections.sort(pokedex, Comparator.comparing(Pokemon::getNivel).thenComparing(Pokemon::getNombre));
                
     }
+
+public void importarEntrenadoresDesdeTxt(String n_Archivo) {
+    if (entrenadores == null) {
+        entrenadores = new ArrayList<>();
+    }
+
+    try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop", n_Archivo);
+
+        Scanner scan = new Scanner(rutaCompleta.toFile());
+
+        while (scan.hasNextLine()) {
+            String entre = scan.nextLine();
+            String[] dato = entre.split(",");
+            String nombreEntrenador = dato[0];
+
+            List<Pokemon> equipoPokemon = new ArrayList<>();
+
+         
+            for (int i = 1; i < dato.length; i++) {
+               String[] datosPokemon = dato[i].split(";"); 
+                String nombre = datosPokemon[0];
+                int ps = Integer.parseInt(datosPokemon[1]);
+                String movimientos = datosPokemon[2];
+                float peso = Float.parseFloat(datosPokemon[3]);
+                float altura = Float.parseFloat(datosPokemon[4]);
+                int num_pokedex = Integer.parseInt(datosPokemon[5]);
+                int nivel = Integer.parseInt(datosPokemon[6]);
+                Pokemon pokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+                equipoPokemon.add(pokemon);
+            }
+
+            Entrenador nuevoEntrenador = new Entrenador(nombreEntrenador, equipoPokemon);
+            entrenadores.add(nuevoEntrenador);
+        }
+
+    } catch (FileNotFoundException e) {
+        System.out.println("Archivo no encontrado: " + n_Archivo);
+    }
+}
+
+   
    
 }//llave final

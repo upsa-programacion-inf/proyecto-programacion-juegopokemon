@@ -6,25 +6,25 @@ import java.util.List;
 
 
 public class Entrenador {
-    private String nombre;
+    private String nombreEntrenador;
     private List<Pokemon> equipoPokemon;
     
     
-    public Entrenador(String nombre) {
-        this.nombre = nombre;
+    public Entrenador(String nombreEntrenador,List<Pokemon> equipoPokemon) {
+        this.nombreEntrenador = nombreEntrenador;
         this.equipoPokemon = new ArrayList<>();
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEntrenador() {
+        return nombreEntrenador;
     }
 
     public List<Pokemon> getEquipoPokemon() {
         return equipoPokemon;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEntrenador(String nombreEntrenador) {
+        this.nombreEntrenador = nombreEntrenador;
     }
 
     public void setEquipoPokemon(List<Pokemon> equipoPokemon) {
@@ -36,11 +36,11 @@ public class Entrenador {
     }
     public void mostrarEquipo() {
         if (equipoPokemon.isEmpty()) {
-            System.out.println("El equipo de " + nombre + " está vacío.");
+            System.out.println("El equipo de " + nombreEntrenador + " está vacío.");
         } else {
-            System.out.println("Equipo de " + nombre + ":");
+            System.out.println("Equipo de " + nombreEntrenador + ":");
             for (Pokemon pokemon : equipoPokemon) {
-                System.out.println("Nombre: " + pokemon.getNombre() + ", Nivel: " + pokemon.getNivel());
+                System.out.println("Nombre: " + pokemon.getNombre() + ", Nivel: " + pokemon.getNivel()+"PS: " + pokemon.getPs());
             }
         }
     }

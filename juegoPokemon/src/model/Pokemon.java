@@ -133,3 +133,10 @@ public class Pokemon {
 }
 
 }
+
+//al menos una clase abstracta y una clase uq herede de esa clase abstracta
+// interfaz y clase que implemente interfaz
+
+//una enumeracion 
+//una clase local date
+//colecciones: lista un set :un mapa y un set ordenado

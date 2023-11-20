@@ -46,4 +46,7 @@ public class Controller {
        m.ordenarPokemonsPorNivelYAlfabetico();
                
     }
+    public void importarEntrenadorDesdeTxt(String n_archivo) {
+        m.importarDesdeTxt(n_archivo);
+    }
 }

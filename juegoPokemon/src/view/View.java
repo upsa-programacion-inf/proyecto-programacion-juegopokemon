@@ -178,6 +178,9 @@ private void tablaPokemon() {
  public void importarDesdeTxt(String ruta) {
         c.importarDesdeTxt(ruta);
     }
+  public void importarEntrenadorDesdeTxt(String n_archivo) {
+        c.importarDesdeTxt(n_archivo);
+    }
  
  public void cambiosPokemon(){
      boolean salir = false;
