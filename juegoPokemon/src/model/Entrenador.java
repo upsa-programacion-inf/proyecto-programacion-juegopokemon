@@ -12,7 +12,7 @@ public class Entrenador {
     
     public Entrenador(String nombreEntrenador,List<Pokemon> equipoPokemon) {
         this.nombreEntrenador = nombreEntrenador;
-        this.equipoPokemon = new ArrayList<>();
+        this.equipoPokemon = equipoPokemon;
     }
 
     public String getNombreEntrenador() {

@@ -167,16 +167,12 @@ public void importarEntrenadoresDesdeTxt(String n_Archivo) {
         while (scan.hasNextLine()) {
             String entre = scan.nextLine();
             String[] dato = entre.split(";");
-            
-            System.out.println("Nombre entrenador: " + dato[0]);
-            System.out.println("Datos Pokémon: " + dato[1]);
             String nombreEntrenador = dato[0];
 
             List<Pokemon> equipoPokemon = new ArrayList<>();
 
-         
             for (int i = 1; i < dato.length; i++) {
-               String[] datosPokemon = dato[i].split(","); 
+                String[] datosPokemon = dato[i].split(",");
                 String nombre = datosPokemon[0];
                 int ps = Integer.parseInt(datosPokemon[1]);
                 String movimientos = datosPokemon[2];
@@ -196,6 +192,7 @@ public void importarEntrenadoresDesdeTxt(String n_Archivo) {
         System.out.println("Archivo no encontrado: " + n_Archivo);
     }
 }
+
 public void mostrarEntrenadores() {
         if (entrenadores == null || entrenadores.isEmpty()) {
             System.out.println("No hay entrenadores registrados.");
