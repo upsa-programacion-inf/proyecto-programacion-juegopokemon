@@ -74,9 +74,8 @@ public class View {
             opcion = this.leerInt();
             switch (opcion) {
                 case 1 ->
-                    System.out.printf("combate");
-                  
-                
+                    this.menuCombate();
+                    
                 case 2 ->
                     System.out.printf("captura");
                    
@@ -179,7 +178,7 @@ private void tablaPokemon() {
         c.importarDesdeTxt(ruta);
     }
   public void importarEntrenadorDesdeTxt(String n_archivo) {
-        c.importarDesdeTxt(n_archivo);
+        c.importarEntrenadorDesdeTxt(n_archivo);
     }
  
  public void cambiosPokemon(){
@@ -285,6 +284,36 @@ private void tablaPokemon() {
        this.tablaPokemon();
                
     }
+    
+   private void menuCombate(){
+        System.out.println("Que quieres hacer?");
+        boolean salir = false;
+            do {
+                System.out.println("1.Mostrar entrenadores del juego");
+                System.out.println("2.combatir");
+                System.out.println("3.salir");
+            int opcion;
+            opcion = this.leerInt();
+            switch (opcion) {
+                case 1 ->
+                    this.mostrarEntrenadores(); 
+
+                case 2 ->
+                    System.out.printf("Empieza el combate:");
+                
+               case 3 ->
+                    salir = siOno();
+
+                default ->
+                    System.out.printf("%n Opcion Incorrecta %n");
+
+            }
+        } while (!salir);
+    
+    }    
+   public void mostrarEntrenadores(){
+       c.mostrarEntrenadores();
+   }
  
 }//llave final
 

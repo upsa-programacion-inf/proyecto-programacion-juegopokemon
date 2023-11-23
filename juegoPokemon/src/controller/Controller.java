@@ -27,8 +27,8 @@ public class Controller {
         return m.tablaPokemon();
     }
 
-    public void importarDesdeTxt(String ruta) {
-        m.importarDesdeTxt(ruta);
+    public void importarDesdeTxt(String n_archivo) {
+        m.importarDesdeTxt(n_archivo);
     }
     public void datosPokemon(String nombre){
         m.datosPokemon(nombre);
@@ -47,6 +47,9 @@ public class Controller {
                
     }
     public void importarEntrenadorDesdeTxt(String n_archivo) {
-        m.importarDesdeTxt(n_archivo);
+        m.importarEntrenadoresDesdeTxt(n_archivo);
+    }
+    public void mostrarEntrenadores() {
+        m.mostrarEntrenadores();
     }
 }
