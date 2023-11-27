@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class Model {
     public List <Pokemon> pokedex = null;
     private List<Entrenador> entrenadores;
+    public List <Pokemon> equipo = null;
+    public List <Pokemon> listaEspera = null;
         
     public String leerCadena(){
         Scanner scan = new Scanner(System.in);
@@ -206,5 +208,127 @@ public void mostrarEntrenadores() {
             }
         }
     }
-   
+       
+public void importarTreecko(String treecko) {
+        if (equipo == null) {
+            equipo = new ArrayList<>();
+        }
+
+try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop",treecko);
+
+        Scanner scan = new Scanner(rutaCompleta.toFile());
+
+            while (scan.hasNextLine()) {
+                String poke = scan.nextLine();
+                String[] datos = poke.split(",");
+                String nombre = datos[0];
+                int ps = Integer.parseInt(datos[1]);
+                String movimientos = datos[2];
+                float peso = Float.parseFloat(datos[3]);
+                float altura = Float.parseFloat(datos[4]);
+                int num_pokedex = Integer.parseInt(datos[5]);
+                int nivel = Integer.parseInt(datos[6]);
+
+                Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+                if(equipo.size() <1){
+                equipo.add(nuevoPokemon);
+                }else{
+                    System.out.println("Ya has elegido");
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Archivo no encontrado: " + treecko);
+        }
+    }
+
+public void importarChimchar(String chimchar) {
+        if (equipo == null) {
+            equipo = new ArrayList<>();
+        }
+
+try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop",chimchar);
+
+        Scanner scan = new Scanner(rutaCompleta.toFile());
+
+            while (scan.hasNextLine()) {
+                String poke = scan.nextLine();
+                String[] datos = poke.split(",");
+                String nombre = datos[0];
+                int ps = Integer.parseInt(datos[1]);
+                String movimientos = datos[2];
+                float peso = Float.parseFloat(datos[3]);
+                float altura = Float.parseFloat(datos[4]);
+                int num_pokedex = Integer.parseInt(datos[5]);
+                int nivel = Integer.parseInt(datos[6]);
+
+                Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+                if(equipo.size() <1){
+                equipo.add(nuevoPokemon);
+                }else{
+                    System.out.println("Ya has elegido");
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Archivo no encontrado: " + chimchar);
+        }
+    }
+public void importarTotodile(String totodile) {
+        if (equipo == null) {
+            equipo = new ArrayList<>();
+        }
+
+try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop",totodile);
+
+        Scanner scan = new Scanner(rutaCompleta.toFile());
+
+            while (scan.hasNextLine()) {
+                String poke = scan.nextLine();
+                String[] datos = poke.split(",");
+                String nombre = datos[0];
+                int ps = Integer.parseInt(datos[1]);
+                String movimientos = datos[2];
+                float peso = Float.parseFloat(datos[3]);
+                float altura = Float.parseFloat(datos[4]);
+                int num_pokedex = Integer.parseInt(datos[5]);
+                int nivel = Integer.parseInt(datos[6]);
+
+                Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+                if(equipo.size() <1){
+                equipo.add(nuevoPokemon);
+                }else{
+                    System.out.println("Ya has elegido");
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+
+            System.out.println("Archivo no encontrado: " + totodile);
+        }
+    }
+public String[][] tablaEquipo() {
+        try {
+            if (equipo != null && !equipo.isEmpty()) {
+                String[][] tabla = new String[equipo.size()][];
+                int i = 0;
+                for (Pokemon pokemon : equipo) {
+                    tabla[i] = pokemon.comoFila();
+                    i++;
+                }
+                return tabla;
+            } else {
+                System.out.println("La Pokedex está vacía o es nula.");
+                return null;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return null;
+        }
+    }
 }//llave final

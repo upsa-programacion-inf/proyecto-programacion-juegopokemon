@@ -37,8 +37,8 @@ public class View {
    
     public static void mostrarMenu() {
         System.out.println("Menú:");
-        System.out.println("1. continuar partida");
-        System.out.println("2. nueva partida");
+        System.out.println("1. nueva partida");
+        System.out.println("2. continuar partida");
         System.out.println("3. información");
         System.out.println("4. Salir del programa");
       
@@ -60,7 +60,7 @@ public class View {
        System.out.println("Bienvenido al Mundo Pókemon");
        System.out.println("Acabas de comenzar tu aventura en esta nueva y extraña región");
        System.out.println("Pero no puedes hacerlo solo, NECESITARÁS UN POKEMON QUE TE ACOMPAÑE!!!");
-       //elegir pokemon
+       this.elegirPokemon();
        System.out.println("Tambien necesitarás una pokedex, toma:");
        System.out.println("Dicho esto que comienze la aventura");
        this.continuarPartida();
@@ -80,7 +80,7 @@ public class View {
                     System.out.printf("captura");
                    
                 case 3 ->
-                    System.out.printf("pokemon");
+                    this.tablaEquipo();
                     
                 case 4 ->
                     this.menuPokedex();
@@ -314,7 +314,66 @@ private void tablaPokemon() {
    public void mostrarEntrenadores(){
        c.mostrarEntrenadores();
    }
- 
+   public void importarTreecko(String treecko) {
+        c.importarTreecko(treecko);
+    }
+    public void importarChimchar(String chimchar) {
+        c.importarChimchar(chimchar);
+    }
+    public void importarTotodile(String totodile) {
+        c.importarTotodile(totodile);
+    }
+    public void elegirPokemon(){
+        boolean salir = false;
+        String totodile = "totodile.txt";
+        String chimchar = "chimchar.txt";
+        String treecko = "treecko.txt";
+        
+            do {
+                System.out.println("1.Elegir a Treecko");
+                System.out.println("2.Elegir a Chimchar");
+                System.out.println("3.Elegr a Totodile");
+                System.out.println("4.salir");
+
+            int opcion;
+            opcion = this.leerInt();
+            switch (opcion) {
+                case 1 ->
+                    this.importarTreecko(treecko);
+                  
+                case 2 ->
+                    this.importarChimchar(chimchar);
+                    
+                case 3 ->
+                    this.importarTotodile(totodile);
+                  
+                case 4 ->
+                    salir = siOno();
+                    
+                default ->
+                    System.out.printf("%n Opcion Incorrecta %n");
+
+            }
+        } while (!salir);
+    
+        
+    }
+    
+   private void tablaEquipo() {
+    try {
+        String[][] tab = c.tablaEquipo();
+        if (tab != null && tab.length > 0 && tab[0].length == 7) {
+            for (String[] fila : tab) {
+                System.out.printf("%nNombre: %s, PS: %s, Movimientos: %s, Peso: %s, Altura: %s, Num Pokedex: %s, Nivel: %s%n",
+                        fila[0], fila[1], fila[2], fila[3], fila[4], fila[5], fila[6]);
+            }
+        } else {
+            System.out.println("La Pokedex está vacía o es nula.");
+        }
+    } catch (Exception ex) {
+        System.out.println(ex);
+    }
+}
 }//llave final
 
  

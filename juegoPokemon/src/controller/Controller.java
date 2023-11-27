@@ -52,4 +52,16 @@ public class Controller {
     public void mostrarEntrenadores() {
         m.mostrarEntrenadores();
     }
+    public void importarTreecko(String treecko) {
+        m.importarTreecko(treecko);
+    }
+    public void importarChimchar(String chimchar) {
+        m.importarChimchar(chimchar);
+    }
+    public void importarTotodile(String totodile) {
+        m.importarTotodile(totodile);
+    }
+    public String[][] tablaEquipo() {
+        return m.tablaEquipo();
+    }
 }
