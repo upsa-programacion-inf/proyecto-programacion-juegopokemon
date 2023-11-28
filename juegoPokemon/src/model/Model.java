@@ -209,6 +209,18 @@ public void mostrarEntrenadores() {
         }
     }
        
+
+
+
+
+
+
+
+
+
+
+
+// Funciones importar desde txt Para elegir al inicial
 public void importarTreecko(String treecko) {
         if (equipo == null) {
             equipo = new ArrayList<>();
