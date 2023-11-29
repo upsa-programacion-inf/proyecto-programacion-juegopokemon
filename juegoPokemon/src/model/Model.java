@@ -132,14 +132,13 @@ private Movimiento encontrarMovimientoPorNombre(String nombreMovimiento) {
     return new Movimiento(nombreMovimiento, 0, Movimiento.TipoMovimiento.NORMAL);
 }
 
-// Método ficticio para obtener una lista de movimientos predefinidos
 private List<Movimiento> obtenerMovimientosPredefinidos() {
     List<Movimiento> movimientos = new ArrayList<>();
     movimientos.add(new Movimiento("Movimiento1", 50, Movimiento.TipoMovimiento.FUEGO));
     movimientos.add(new Movimiento("Movimiento2", 40, Movimiento.TipoMovimiento.PLANTA));
     movimientos.add(new Movimiento("Movimiento3", 30, Movimiento.TipoMovimiento.AGUA));
     movimientos.add(new Movimiento("Movimiento4", 20, Movimiento.TipoMovimiento.NORMAL));
-    // Agregar más movimientos según sea necesario
+ 
     return movimientos;
 }
 
