@@ -62,7 +62,7 @@ public boolean añadirPokemon(String nombre, int ps, String[] nombresMovimientos
     Movimiento[] movimientos = new Movimiento[nombresMovimientos.length];
 
     for (int i = 0; i < nombresMovimientos.length; i++) {
-        movimientos[i] = new Movimiento(nombresMovimientos[i], 0, Movimiento.TipoMovimiento.NORMAL);
+        movimientos[i] = new Movimiento(nombresMovimientos[i], 50, Movimiento.TipoMovimiento.NORMAL);
     }
 
     Pokemon pok = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
@@ -102,7 +102,6 @@ public void importarDesdeTxt(String nombreArchivo) {
             String[] movimientosData = datos[2].split("; ");
             Movimiento[] movimientos = new Movimiento[movimientosData.length];
             for (int i = 0; i < movimientosData.length; i++) {
-              
                 movimientos[i] = encontrarMovimientoPorNombre(movimientosData[i]);
             }
 
