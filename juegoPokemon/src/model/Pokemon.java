@@ -6,14 +6,13 @@ import java.util.ArrayList;
 public class Pokemon {
     private String nombre;
     private int ps;
-    private String movimientos;
+    private Movimiento[] movimientos;
     private float peso;
     private float altura;
     private int num_pokedex;
     private int nivel;
-    private ArrayList<String> Pokemon=new ArrayList<>();
      
-    public Pokemon(String nombre, int ps, String movimientos, float peso, float altura, int num_pokedex, int nivel){
+    public Pokemon(String nombre, int ps, Movimiento[] movimientos, float peso, float altura, int num_pokedex, int nivel){
         this.nombre=nombre;
         this.ps=ps;
         this.movimientos=movimientos;
@@ -23,39 +22,7 @@ public class Pokemon {
         this.nivel=nivel;
 
     }
-    
-    public static Pokemon factory(String[] poke){
-    if(7!=poke.length){
-        return null;
-    }
-    String p_nombre,p_movimientos;
-    int p_ps,p_num_pokedex,p_nivel;
-    float p_peso, p_altura;
-    for(int i = 0;i<poke.length;i++){
-        if(poke[i].isEmpty()){
-            return null;
-        }
-    }
-    p_nombre=poke[0];
-  
-    try{
-        p_ps=Integer.parseInt(poke[1]);
-        p_peso=Float.parseFloat(poke[3]);
-        p_altura=Float.parseFloat(poke[4]);
-        p_num_pokedex=Integer.parseInt(poke[5]);
-        p_nivel=Integer.parseInt(poke[6]);
-
-    }catch(Exception ex){
-        System.out.println("Exception "+ex);
-        return null;
-    }
-    p_movimientos=poke[2];
-   
-    
-    return new Pokemon(p_nombre,p_ps,p_movimientos,p_peso,p_altura,p_num_pokedex, p_nivel);
-     } 
-
-    public String getNombre() {
+     public String getNombre() {
         return nombre;
     }
 
@@ -63,9 +30,7 @@ public class Pokemon {
         return ps;
     }
 
-    public String getMovimientos() {
-        return movimientos;
-    }
+  
 
     public float getPeso() {
         return peso;
@@ -83,9 +48,7 @@ public class Pokemon {
         return nivel;
     }
 
-    public ArrayList<String> getPokemon() {
-        return Pokemon;
-    }
+   
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -95,9 +58,6 @@ public class Pokemon {
         this.ps = ps;
     }
 
-    public void setMovimientos(String movimientos) {
-        this.movimientos = movimientos;
-    }
 
     public void setPeso(float peso) {
         this.peso = peso;
@@ -115,28 +75,36 @@ public class Pokemon {
         this.nivel = nivel;
     }
 
-    public void setPokemon(ArrayList<String> Pokemon) {
-        this.Pokemon = Pokemon;
+  
+
+    public Movimiento[] getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(Movimiento[] movimientos) {
+        this.movimientos = movimientos;
     }
     
-   public String[] comoFila() {
+public String[] comoFila() {
+    String[] nombresMovimientos = new String[movimientos.length];
+
+    for (int i = 0; i < movimientos.length; i++) {
+        nombresMovimientos[i] = movimientos[i].getNombreMovimiento();
+    }
+
     String[] fila = {
             this.nombre,
             String.valueOf(this.ps),
-            this.movimientos,
+            String.join("; ", nombresMovimientos), 
             String.valueOf(this.peso),
             String.valueOf(this.altura),
             String.valueOf(this.num_pokedex),
             String.valueOf(this.nivel)
     };
+
     return fila;
 }
 
-}
 
-//al menos una clase abstracta y una clase uq herede de esa clase abstracta
-// interfaz y clase que implemente interfaz
+}//lave final
 
-//una enumeracion 
-//una clase local date
-//colecciones: lista un set :un mapa y un set ordenado

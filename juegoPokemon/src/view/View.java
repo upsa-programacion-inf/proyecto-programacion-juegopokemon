@@ -106,32 +106,47 @@ public class View {
       
     }         
         
-      private void añadirPokemon(){
-        System.out.printf("%nVamos a añadir un pokemon, por favor, conteste a lo sigiente:");
-        String nombre="";
-        do{ 
-            System.out.println("introduce el nombre para comprobar que no existe ya");
-            nombre = leerCadena();
-            
-        }while(c.estaSiONo(nombre));
-  
-         System.out.println("dime los ps del pokemon, si está sano 200");
-         int ps=this.leerInt();
-          System.out.println("dime algun movimiento que tenga el pokemon");
-         String movimientos = leerCadena();
-          System.out.println("diga el peso del pokemon");
-         float peso = leerFloat();
-          System.out.println("diga la altura del pokemon");
-         float altura = leerFloat();
-          System.out.println("diga el numero de pokedex del pokemon");
-         int num_pokedex = leerInt();
-          System.out.println("diga el nivel del pokemon");
-         int nivel = leerInt();
- 
-      c.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+      private void añadirPokemon() {
+    System.out.printf("%nVamos a añadir un Pokémon, por favor, conteste a lo siguiente:");
 
-      
+    String nombre = "";
+    do { 
+        System.out.println("Introduce el nombre para comprobar que no existe ya:");
+        nombre = leerCadena();
+        
+        if (c.estaSiONo(nombre)) {
+            System.out.println("¡Error! Ya existe un Pokémon con ese nombre. Elige otro.");
         }
+
+    } while (c.estaSiONo(nombre));
+
+    System.out.println("Dime los PS del Pokémon, si está sano 200:");
+    int ps = this.leerInt();
+
+    System.out.println("Dime los movimientos que tiene el Pokémon (separados por comas):");
+    String[] movimientos = leerCadena().split(", ");
+
+    System.out.println("Diga el peso del Pokémon:");
+    float peso = leerFloat();
+
+    System.out.println("Diga la altura del Pokémon:");
+    float altura = leerFloat();
+
+    System.out.println("Diga el número de la Pokédex del Pokémon:");
+    int num_pokedex = leerInt();
+
+    System.out.println("Diga el nivel del Pokémon:");
+    int nivel = leerInt();
+
+    boolean pokemonAgregado = c.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+
+    if (pokemonAgregado) {
+        System.out.println("¡Pokémon añadido correctamente!");
+    } else {
+        System.out.println("Hubo un problema al añadir el Pokémon. Por favor, verifica los datos e inténtalo de nuevo.");
+    }
+}
+
     
   public void eresAdmin()throws Exception{
         boolean salir = false;

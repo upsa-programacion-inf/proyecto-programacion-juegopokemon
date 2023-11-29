@@ -58,15 +58,18 @@ public boolean siOno(){
         }
        
 }
-public boolean añadirPokemon(String nombre, int ps, String movimientos, float peso, float altura, int num_pokedex, int nivel){
-      boolean tr=true;
-         System.out.println("Nombre: "+nombre + " Nivel: "+nivel + " Numero de la Pokedex: "+num_pokedex);
-     Pokemon pok = new Pokemon(nombre,ps,movimientos,peso,altura,num_pokedex,nivel);
-      pokedex.add(pok);
+public boolean añadirPokemon(String nombre, int ps, String[] nombresMovimientos, float peso, float altura, int num_pokedex, int nivel){
+    Movimiento[] movimientos = new Movimiento[nombresMovimientos.length];
 
-      return tr;
+    for (int i = 0; i < nombresMovimientos.length; i++) {
+        movimientos[i] = new Movimiento(nombresMovimientos[i], 0, Movimiento.TipoMovimiento.NORMAL);
     }
 
+    Pokemon pok = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+    pokedex.add(pok);
+
+    return true;
+}
 
  public boolean estaSiONo(String nombre){
         HashMap<String,Pokemon> mapa = new HashMap<>();
@@ -81,41 +84,72 @@ public boolean añadirPokemon(String nombre, int ps, String movimientos, float p
 
     
 public void importarDesdeTxt(String nombreArchivo) {
-        if (pokedex == null) {
-            pokedex = new ArrayList<>();
-        }
+    if (pokedex == null) {
+        pokedex = new ArrayList<>();
+    }
 
-try {
-        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop",nombreArchivo);
+    try {
+        Path rutaCompleta = Paths.get(System.getProperty("user.home"), "Desktop", nombreArchivo);
 
         Scanner scan = new Scanner(rutaCompleta.toFile());
 
-            while (scan.hasNextLine()) {
-                String poke = scan.nextLine();
-                String[] datos = poke.split(",");
-                String nombre = datos[0];
-                int ps = Integer.parseInt(datos[1]);
-                String movimientos = datos[2];
-                float peso = Float.parseFloat(datos[3]);
-                float altura = Float.parseFloat(datos[4]);
-                int num_pokedex = Integer.parseInt(datos[5]);
-                int nivel = Integer.parseInt(datos[6]);
+        while (scan.hasNextLine()) {
+            String poke = scan.nextLine();
+            String[] datos = poke.split(",");
+            String nombre = datos[0];
+            int ps = Integer.parseInt(datos[1]);
 
-                Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
-                pokedex.add(nuevoPokemon);
+            String[] movimientosData = datos[2].split("; ");
+            Movimiento[] movimientos = new Movimiento[movimientosData.length];
+            for (int i = 0; i < movimientosData.length; i++) {
+              
+                movimientos[i] = encontrarMovimientoPorNombre(movimientosData[i]);
             }
 
-        } catch (FileNotFoundException e) {
+            float peso = Float.parseFloat(datos[3]);
+            float altura = Float.parseFloat(datos[4]);
+            int num_pokedex = Integer.parseInt(datos[5]);
+            int nivel = Integer.parseInt(datos[6]);
 
-            System.out.println("Archivo no encontrado: " + nombreArchivo);
+            Pokemon nuevoPokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+            pokedex.add(nuevoPokemon);
+        }
+
+    } catch (FileNotFoundException e) {
+        System.out.println("Archivo no encontrado: " + nombreArchivo);
+    }
+}
+private Movimiento encontrarMovimientoPorNombre(String nombreMovimiento) {
+    List<Movimiento> movimientosPredefinidos = obtenerMovimientosPredefinidos();
+
+    for (Movimiento movimiento : movimientosPredefinidos) {
+        if (movimiento.getNombreMovimiento().equalsIgnoreCase(nombreMovimiento)) {
+
+            return new Movimiento(movimiento.getNombreMovimiento(), movimiento.getDaño(), movimiento.getTipo());
         }
     }
+
+    return new Movimiento(nombreMovimiento, 0, Movimiento.TipoMovimiento.NORMAL);
+}
+
+// Método ficticio para obtener una lista de movimientos predefinidos
+private List<Movimiento> obtenerMovimientosPredefinidos() {
+    List<Movimiento> movimientos = new ArrayList<>();
+    movimientos.add(new Movimiento("Movimiento1", 50, Movimiento.TipoMovimiento.FUEGO));
+    movimientos.add(new Movimiento("Movimiento2", 40, Movimiento.TipoMovimiento.PLANTA));
+    movimientos.add(new Movimiento("Movimiento3", 30, Movimiento.TipoMovimiento.AGUA));
+    movimientos.add(new Movimiento("Movimiento4", 20, Movimiento.TipoMovimiento.NORMAL));
+    // Agregar más movimientos según sea necesario
+    return movimientos;
+}
+
+
 public void datosPokemon(String nombre){
         for(Pokemon poke: pokedex){
             if(poke.getNombre().equalsIgnoreCase(nombre)){
                 System.out.println("nombre");System.out.println(poke.getNombre());
                 System.out.println("ps");System.out.println(poke.getPs());
-                System.out.println("movimientosl");System.out.println(poke.getMovimientos());
+                System.out.println("movimientos");System.out.println(poke.getMovimientos());
                 System.out.println("peso");System.out.println(poke.getPeso());
                 System.out.println("altura");System.out.println(poke.getAltura());
                 System.out.println("num_pokedex");System.out.println(poke.getNum_pokedex());
@@ -177,11 +211,18 @@ public void importarEntrenadoresDesdeTxt(String n_Archivo) {
                 String[] datosPokemon = dato[i].split(",");
                 String nombre = datosPokemon[0];
                 int ps = Integer.parseInt(datosPokemon[1]);
-                String movimientos = datosPokemon[2];
+
+                String[] nombresMovimientos = datosPokemon[2].split("; ");
+                Movimiento[] movimientos = new Movimiento[nombresMovimientos.length];
+                for (int j = 0; j < nombresMovimientos.length; j++) {
+                    movimientos[j] = encontrarMovimientoPorNombre(nombresMovimientos[j]);
+                }
+
                 float peso = Float.parseFloat(datosPokemon[3]);
                 float altura = Float.parseFloat(datosPokemon[4]);
                 int num_pokedex = Integer.parseInt(datosPokemon[5]);
                 int nivel = Integer.parseInt(datosPokemon[6]);
+
                 Pokemon pokemon = new Pokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
                 equipoPokemon.add(pokemon);
             }
@@ -194,6 +235,7 @@ public void importarEntrenadoresDesdeTxt(String n_Archivo) {
         System.out.println("Archivo no encontrado: " + n_Archivo);
     }
 }
+
 
 public void mostrarEntrenadores() {
         if (entrenadores == null || entrenadores.isEmpty()) {
@@ -209,13 +251,6 @@ public void mostrarEntrenadores() {
         }
     }
        
-
-
-
-
-
-
-
 
 
 
@@ -236,7 +271,12 @@ try {
                 String[] datos = poke.split(",");
                 String nombre = datos[0];
                 int ps = Integer.parseInt(datos[1]);
-                String movimientos = datos[2];
+                String[] movimientosData = datos[2].split("; ");
+                Movimiento[] movimientos = new Movimiento[movimientosData.length];
+                for (int i = 0; i < movimientosData.length; i++) {
+              
+                movimientos[i] = encontrarMovimientoPorNombre(movimientosData[i]);
+                     }
                 float peso = Float.parseFloat(datos[3]);
                 float altura = Float.parseFloat(datos[4]);
                 int num_pokedex = Integer.parseInt(datos[5]);
@@ -271,7 +311,12 @@ try {
                 String[] datos = poke.split(",");
                 String nombre = datos[0];
                 int ps = Integer.parseInt(datos[1]);
-                String movimientos = datos[2];
+                String[] movimientosData = datos[2].split("; ");
+                Movimiento[] movimientos = new Movimiento[movimientosData.length];
+                for (int i = 0; i < movimientosData.length; i++) {
+              
+                movimientos[i] = encontrarMovimientoPorNombre(movimientosData[i]);
+                    }
                 float peso = Float.parseFloat(datos[3]);
                 float altura = Float.parseFloat(datos[4]);
                 int num_pokedex = Integer.parseInt(datos[5]);
@@ -305,7 +350,12 @@ try {
                 String[] datos = poke.split(",");
                 String nombre = datos[0];
                 int ps = Integer.parseInt(datos[1]);
-                String movimientos = datos[2];
+                String[] movimientosData = datos[2].split("; ");
+                Movimiento[] movimientos = new Movimiento[movimientosData.length];
+                for (int i = 0; i < movimientosData.length; i++) {
+              
+                movimientos[i] = encontrarMovimientoPorNombre(movimientosData[i]);
+                 }
                 float peso = Float.parseFloat(datos[3]);
                 float altura = Float.parseFloat(datos[4]);
                 int num_pokedex = Integer.parseInt(datos[5]);

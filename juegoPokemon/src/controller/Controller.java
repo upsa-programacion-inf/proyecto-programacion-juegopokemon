@@ -19,8 +19,8 @@ public class Controller {
      public boolean estaSiONo(String nombre){
         return m.estaSiONo(nombre);
     }
-    public boolean añadirPokemon(String nombre, int ps, String movimientos, float peso, float altura, int num_pokedex, int nivel){
-        return m.añadirPokemon(nombre, ps, movimientos, peso, altura, num_pokedex, nivel);
+    public boolean añadirPokemon(String nombre, int ps, String[] nombresMovimientos, float peso, float altura, int num_pokedex, int nivel) {
+        return m.añadirPokemon(nombre, ps, nombresMovimientos, peso, altura, num_pokedex, nivel);
     }
     
    public String[][] tablaPokemon() {

@@ -10,7 +10,7 @@ public class Entrenador {
     private List<Pokemon> equipoPokemon;
     
     
-    public Entrenador(String nombreEntrenador,List<Pokemon> equipoPokemon) {
+   public Entrenador(String nombreEntrenador, List<Pokemon> equipoPokemon) {
         this.nombreEntrenador = nombreEntrenador;
         this.equipoPokemon = equipoPokemon;
     }
