@@ -64,4 +64,7 @@ public class Controller {
     public String[][] tablaEquipo() {
         return m.tablaEquipo();
     }
+    public void hora(){
+        m.hora();
+    }
 }

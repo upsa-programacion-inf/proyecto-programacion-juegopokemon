@@ -10,6 +10,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter; 
 
 public class Model {
     public List <Pokemon> pokedex = null;
@@ -391,4 +393,8 @@ public String[][] tablaEquipo() {
             return null;
         }
     }
+public void hora(){
+    LocalDateTime fecha = LocalDateTime.now();
+    System.out.println("fecha de captura: " + fecha);
+}
 }//llave final

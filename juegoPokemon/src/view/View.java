@@ -370,7 +370,7 @@ private void tablaPokemon() {
 
             }
         } while (!salir);
-    
+        this.hora();
         
     }
     
@@ -389,6 +389,9 @@ private void tablaPokemon() {
         System.out.println(ex);
     }
 }
+   public void hora(){
+   c.hora();
+   }
 }//llave final
 
  
