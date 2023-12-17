@@ -130,7 +130,7 @@ private Movimiento encontrarMovimientoPorNombre(String nombreMovimiento) {
         }
     }
 
-    return new Movimiento(nombreMovimiento, 0, Movimiento.TipoMovimiento.NORMAL);
+    return new Movimiento(nombreMovimiento, 30, Movimiento.TipoMovimiento.NORMAL);
 }
 
 private List<Movimiento> obtenerMovimientosPredefinidos() {
