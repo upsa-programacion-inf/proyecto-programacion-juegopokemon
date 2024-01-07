@@ -67,4 +67,7 @@ public class Controller {
     public void hora(){
         m.hora();
     }
+    public void captura(){
+        m.captura();
+    }
 }

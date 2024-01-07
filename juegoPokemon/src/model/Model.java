@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter; 
+import java.util.Random;
 
 public class Model {
     public List <Pokemon> pokedex = null;
@@ -397,4 +398,28 @@ public void hora(){
     LocalDateTime fecha = LocalDateTime.now();
     System.out.println("fecha de captura: " + fecha);
 }
+
+public void captura() {
+        if (pokedex == null || pokedex.isEmpty()) {
+            System.out.println("No hay Pokémon en la Pokédex para capturar.");
+            return;
+        }
+        Random random = new Random();
+        int indicePokemonAleatorio = random.nextInt(pokedex.size());
+        Pokemon pokemonCapturado = pokedex.get(indicePokemonAleatorio);
+
+        if (equipo != null && equipo.contains(pokemonCapturado)) {
+            System.out.println("Ya has capturado a este Pokémon antes.");
+            return;
+        }
+
+        if (equipo == null) {
+            equipo = new ArrayList<>();
+        }
+        equipo.add(pokemonCapturado);
+
+        System.out.println("¡Has capturado a " + pokemonCapturado.getNombre() + "!");
+        this.hora();
+    }
+    
 }//llave final

@@ -77,7 +77,7 @@ public class View {
                     this.menuCombate();
                     
                 case 2 ->
-                    System.out.printf("captura");
+                    this.captura();
                    
                 case 3 ->
                     this.tablaEquipo();
@@ -201,7 +201,7 @@ private void tablaPokemon() {
      
         
             do {
-                System.out.println("1.añadir dastos de un Pokemon");
+                System.out.println("1.añadir datos de un Pokemon");
                 System.out.println("2.ver datos de un  Pokemon");
                 System.out.println("3.ver Pokedex");
                 System.out.println("4.eliminar datos de un pokemon");
@@ -391,6 +391,9 @@ private void tablaPokemon() {
 }
    public void hora(){
    c.hora();
+   }
+   public void captura(){
+       c.captura();
    }
 }//llave final
 
