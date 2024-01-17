@@ -13,6 +13,7 @@ public class JuegoPokemon {
         v.importarEntrenadorDesdeTxt(n_archivo);
         
         v.eresAdmin();
+        v.mostrarMensaje("Trabajo hecho por Ismael Gabriel Prieto");
     }
-    
+   
 }

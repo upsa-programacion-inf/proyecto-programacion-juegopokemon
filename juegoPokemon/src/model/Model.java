@@ -1,5 +1,6 @@
 
 package model;
+import interfaces.Interfaces;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter; 
 import java.util.Random;
 
-public class Model {
+public class Model implements Interfaces  {
     public List <Pokemon> pokedex = null;
     private List<Entrenador> entrenadores;
     public List <Pokemon> equipo = null;
@@ -420,6 +421,9 @@ public void captura() {
 
         System.out.println("¡Has capturado a " + pokemonCapturado.getNombre() + "!");
         this.hora();
+    }
+public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
     }
     
 }//llave final

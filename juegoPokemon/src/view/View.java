@@ -1,8 +1,9 @@
 package view;
 
 import controller.Controller;
+import interfaces.Interfaces;
 
-public class View {
+public class View implements Interfaces {
     Controller c = new Controller();
 
    
@@ -204,8 +205,7 @@ private void tablaPokemon() {
                 System.out.println("1.añadir datos de un Pokemon");
                 System.out.println("2.ver datos de un  Pokemon");
                 System.out.println("3.ver Pokedex");
-                System.out.println("4.eliminar datos de un pokemon");
-                System.out.println("5.salir");
+                System.out.println("4.salir");
             int opcion;
             opcion = this.leerInt();
             switch (opcion) {
@@ -217,11 +217,8 @@ private void tablaPokemon() {
                     
                 case 3 ->
                     this.tablaPokemon();
-                
-                case 4 ->
-                    System.out.println("por hacer");
                   
-                case 5 ->
+                case 4->
                     salir = siOno();
                     
                 default ->
@@ -395,6 +392,10 @@ private void tablaPokemon() {
    public void captura(){
        c.captura();
    }
+
+     public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
 }//llave final
 
  

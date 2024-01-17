@@ -1,8 +1,9 @@
 
 package controller;
 import model.Model;
+import interfaces.Interfaces;
 
-public class Controller {
+public class Controller implements Interfaces {
     Model m= new Model();
     public String leerCadena(){
         return m.leerCadena();
@@ -69,5 +70,8 @@ public class Controller {
     }
     public void captura(){
         m.captura();
+    }
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
     }
 }
