@@ -1,0 +1,1 @@
+Chimchar,200,Llamarada,6.2,0.5,390,5

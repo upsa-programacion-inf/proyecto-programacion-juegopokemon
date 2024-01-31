@@ -1,0 +1,3 @@
+Ash;Pikachu,80,Thunder Shock,6.0,0.4,25,10;Bulbasaur,45,Tackle,6.9,0.7,1,5
+Misty;Starmie,90,Water Gun,80.0,1.1,121,15;Psyduck,50,Scratch,19.6,0.8,54,12
+Brock;Onix,100,Rock Throw,210.0,8.8,95,20;Geodude,60,Tackle,20.0,0.4,74,18

@@ -1,0 +1,3 @@
+Raticate,200,Mordisco,18.5,0.7,20,79
+Flygon,200,Vuelo,82.0,2.0,330,80
+Venusaur,200,drenadoras,109.5,3.5,3,42
